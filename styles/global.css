@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500&display=swap');
 
 * {
   padding: 0;
@@ -48,7 +48,8 @@ body {
 }
 
 .container_color {
-    @apply bg-gradient-to-r from-fuchsia-600 to-pink-600
+    background: rgb(31,33,40);
+    background: linear-gradient(90deg, rgba(31,33,40,1) 11%, rgba(4,4,31,1) 31%, rgba(10,21,52,1) 74%, rgba(0,0,0,1) 100%);
 }
 
 /* grid two items */ 
@@ -57,7 +58,7 @@ body {
 }
 
 .form_option {
-   @apply px-28 py-2 mb-8 bg-slate-100  relative rounded-lg font-semibold  text-gray-700 text-center 
+   @apply px-28 py-2 mb-8 bg-slate-100  relative rounded-lg font-semibold  text-black text-center 
 }
 
 .design {
@@ -74,9 +75,45 @@ body {
 }
 
 .from_otherOptionSignInUp {
-    @apply py-2  px-6 bg-slate-100  rounded-lg font-semibold text-gray-700 flex-wrap
+    @apply py-2  px-6 bg-slate-100  rounded-lg font-semibold text-black flex-wrap
 }
 
 .home_title {
     @apply text-center font-bold text-xl  text-gray-800
 }
+
+/* NAVIGATION */
+ 
+ 
+.nav_container {
+    @apply py-10 border-b-gray-900 border-b-2
+}
+
+
+.nav_layout {
+    @apply  flex justify-end  items-center   mr-12 space-x-10 text-stone-300
+}
+ 
+
+.nav_logo {
+    @apply absolute left-12
+}
+
+.animate-gradient {
+    background-size: 300%;
+    -webkit-animation: animatedgradient 6s ease infinite alternate;
+    -moz-animation: animatedgradient 6s ease infinite alternate;
+    animation: animatedgradient 6s ease infinite alternate;
+  }
+  
+  @keyframes animatedgradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

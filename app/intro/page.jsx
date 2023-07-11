@@ -5,6 +5,9 @@ const LandingPage = () => {
 
     <div>
         <Nav></Nav>
+         <div className="container_row container_color">
+            
+         </div>
     </div>
   )
 }
