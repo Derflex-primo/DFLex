@@ -5,7 +5,7 @@ const RootLayout = ({ children }) => {
      <html lang='en'>
         <head>
         </head>
-       <body>
+       <body >
         {children}
        </body>
      </html>
