@@ -1,9 +1,15 @@
 import { Nav } from "@components/Nav";
 import Image from "next/image";
+import { Rankin } from "@components/Rankin";
  
 
 const LandingPage = () => {
-  return (
+
+
+   
+    return (
+
+        
 
     <div>
         <Nav></Nav>
@@ -52,7 +58,10 @@ const LandingPage = () => {
                     <li>Pool</li>
                 </ul>
             </div>
-            
+           
+            <Rankin></Rankin>
+       
+           
          </div>
     </div>
   )
