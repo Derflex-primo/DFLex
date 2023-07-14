@@ -1,7 +1,6 @@
 import { Nav } from "@components/Nav";
 import Image from "next/image";
 import { Rankin } from "@components/Rankin";
- 
 
 const LandingPage = () => {
 
@@ -12,6 +11,7 @@ const LandingPage = () => {
         
 
     <div>
+        
         <Nav></Nav>
          <div className="container-row container_color  text-stone-300 ">
             <div>
