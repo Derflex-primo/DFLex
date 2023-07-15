@@ -1,9 +1,30 @@
+
 import { Nav } from "@components/Nav";
 import Image from "next/image";
-import { Rankin } from "@components/Rankin";
+ 
 
-const LandingPage = () => {
+const url =
+'https://opensea13.p.rapidapi.com/assets/?collection_slug=cryptopunks&order_direction=desc&limit=200&include_orders=false';
+const options = {
+headers: {
+  'X-RapidAPI-Key': 'a7322f9585mshdafccf8759bd704p1f29a3jsne58ed93219f1',
+  'X-RapidAPI-Host': 'opensea13.p.rapidapi.com',
+},
+};
 
+async function getUSerData(){
+  const response = await fetch(url, options, {
+    cache: "no-cache"
+  })
+  const data = await response.json()
+  return data
+}
+
+
+
+const LandingPage = async () => {
+    const showDataUSer = await getUSerData()
+    console.log("nft data", showDataUSer)
 
    
     return (
@@ -31,23 +52,23 @@ const LandingPage = () => {
                  src='/assets/images/metaverse.png'
                  width={1380}
                  height={80}
-                 className="rounded-lg opacity-9">
+                 className="rounded-lg opacity-9"
+                 prio>
                  </Image>
                  <div className="absolute left-20 bottom-24">
                   <Image
-                  src=''
+                  src='https://i.seadn.io/gcs/files/3fbc6b14d29824d3a100245245a182ea.png?w=500&auto=format'
                   width={60}
                   height={60}
-                  className="bg-white rounded-lg"></Image>
+                  className="bg-white rounded-lg"
+                  alt="tae"></Image>
                   <h1 className="text-4xl font-semibold mt-6">MULTIVERSE</h1>
                    <h1>By Deogracias_Daryl</h1>
                    <h1>10,2003 items - 0.16 ETH</h1>
                    <h1 className="text-xl mt-6 py-4 rounded-xl bg-slate-500 text-center text-black font-semibold">16 items left</h1>
                   </div>
                   <h1 className="absolute right-20 mt-12 text-sm">COLLECTION</h1>
-            </div>
-  
-    
+            </div>    
             <div className="flex justify-between mx-12 mt-12 spc">
                 <ul className="flex space-x-10">
                     <li>Trends</li>
@@ -58,8 +79,41 @@ const LandingPage = () => {
                     <li>Pool</li>
                 </ul>
             </div>
+            <div>
+        <div className="flex justify-between mx-12 mt-8 text-sm font-thin text-slate-500">
+        <div className="flex space-x-96">
+          <div className="flex space-x-4">
+            <h3>Rank</h3>
+            <h3>Collection</h3>
+          </div>
+          <div className="flex space-x-20">
+            <h3>Floor Price</h3>
+            <h3>Volume</h3>
+          </div>
+        </div>
+      </div>
+    
+       
+         <div className="flex space-x-96 mx-12 mt-8 " >
+          <div className="flex space-x-10 items-center">
+            <h1>1</h1>
+            <Image
+              src={showDataUSer.image_thumbnail_url} // Replace with the actual image URL property from the fetched data
+              width={60}
+              height={60}
+              alt="Nft-logo"
+              className="bg-white rounded-lg"
+            />
+          </div>
+          <div className="flex space-x-16 items-center">
+            <h1>09.1 ETH</h1>
+            <h1>0.98 ETH</h1>
+          </div>
+        </div>
+      
+    </div>
            
-            <Rankin></Rankin>
+          
        
            
          </div>

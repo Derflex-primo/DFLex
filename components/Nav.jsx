@@ -15,7 +15,8 @@ export const Nav = () => {
          src=''
          width={40}
          height={40}
-         className="bg-white rounded-full"></Image>
+         className="bg-white rounded-full"
+         alt="deo"></Image>
     </ul>
   </div>
   )
