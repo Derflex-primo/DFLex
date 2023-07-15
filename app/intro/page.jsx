@@ -1,37 +1,15 @@
 
 import { Nav } from "@components/Nav";
 import Image from "next/image";
- 
-
-const url =
-'https://opensea13.p.rapidapi.com/assets/?collection_slug=cryptopunks&order_direction=desc&limit=200&include_orders=false';
-const options = {
-headers: {
-  'X-RapidAPI-Key': 'a7322f9585mshdafccf8759bd704p1f29a3jsne58ed93219f1',
-  'X-RapidAPI-Host': 'opensea13.p.rapidapi.com',
-},
-};
-
-async function getUSerData(){
-  const response = await fetch(url, options, {
-    cache: "no-cache"
-  })
-  const data = await response.json()
-  return data
-}
-
+import getUSerData from "@app/libs/getData";
 
 
 const LandingPage = async () => {
-    const showDataUSer = await getUSerData()
-    console.log("nft data", showDataUSer)
+  const showDataUSer = await getUSerData()
 
-   
+   {showDataUSer.map(data => {
     return (
-
-        
-
-    <div>
+      <div>
         
         <Nav></Nav>
          <div className="container-row container_color  text-stone-300 ">
@@ -53,7 +31,7 @@ const LandingPage = async () => {
                  width={1380}
                  height={80}
                  className="rounded-lg opacity-9"
-                 prio>
+                 priority>
                  </Image>
                  <div className="absolute left-20 bottom-24">
                   <Image
@@ -93,12 +71,11 @@ const LandingPage = async () => {
         </div>
       </div>
     
-       
-         <div className="flex space-x-96 mx-12 mt-8 " >
+          <div className="flex space-x-96 mx-12 mt-8 " >
           <div className="flex space-x-10 items-center">
-            <h1>1</h1>
+            <h1>{data.name}</h1>
             <Image
-              src={showDataUSer.image_thumbnail_url} // Replace with the actual image URL property from the fetched data
+              src=""  
               width={60}
               height={60}
               alt="Nft-logo"
@@ -109,16 +86,20 @@ const LandingPage = async () => {
             <h1>09.1 ETH</h1>
             <h1>0.98 ETH</h1>
           </div>
-        </div>
-      
-    </div>
-           
+        </div> 
+
+        
           
-       
-           
-         </div>
+
+    </div>     
+    </div>
     </div>
   )
+
+
+   })}
+    
 }
 
 export default LandingPage;
+
