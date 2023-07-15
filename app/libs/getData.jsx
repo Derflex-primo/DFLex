@@ -2,7 +2,7 @@ const url =
 'https://opensea13.p.rapidapi.com/assets/?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false';
 const options = {
 headers: {
-  'X-RapidAPI-Key': "a7322f9585mshdafccf8759bd704p1f29a3jsne58ed93219f1",
+  'X-RapidAPI-Key': "e6c31a0ab3mshd6395521b46f35bp11e78fjsnfe0185b1a93a",
   'X-RapidAPI-Host': 'opensea13.p.rapidapi.com',
 },
 

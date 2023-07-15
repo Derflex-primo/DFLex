@@ -1,4 +1,5 @@
 
+
 import { Nav } from "@components/Nav";
 import Image from "next/image";
 import getUSerData from "@app/libs/getData";
@@ -8,12 +9,11 @@ import getUSerData from "@app/libs/getData";
 const LandingPage = async ( ) => {
   const showDataUSer = await getUSerData()
   const data = Object.values(showDataUSer)
+  const date = data[2]
 
- 
-   console.log(data)
-   {data && data.map(d => {
+   {date && date.map(d => {
     return (
-      <div key={d.id.value}>
+      <div key={d.id}>
         
         <Nav></Nav>
          <div className="container-row container_color  text-stone-300 ">
@@ -77,9 +77,9 @@ const LandingPage = async ( ) => {
     
           <div className="flex space-x-96 mx-12 mt-8 " >
           <div className="flex space-x-10 items-center">
-            <h1>{d.schema_name}</h1>
+            <h1>{d.name}</h1>
             <Image
-              src= '' 
+              src= {d.image_thumbnail_url} 
               width={60}
               height={60}
               alt="Nft-logo"
@@ -90,11 +90,7 @@ const LandingPage = async ( ) => {
             <h1>09.1 ETH</h1>
             <h1>0.98 ETH</h1>
           </div>
-        </div> 
-
-        
-          
-
+        </div>
     </div>     
     </div>
     </div>
