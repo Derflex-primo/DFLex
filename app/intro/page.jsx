@@ -4,12 +4,16 @@ import Image from "next/image";
 import getUSerData from "@app/libs/getData";
 
 
-const LandingPage = async () => {
-  const showDataUSer = await getUSerData()
 
-   {showDataUSer.map(data => {
+const LandingPage = async ( ) => {
+  const showDataUSer = await getUSerData()
+  const data = Object.values(showDataUSer)
+
+ 
+   console.log(data)
+   {data && data.map(d => {
     return (
-      <div>
+      <div key={d.id.value}>
         
         <Nav></Nav>
          <div className="container-row container_color  text-stone-300 ">
@@ -73,9 +77,9 @@ const LandingPage = async () => {
     
           <div className="flex space-x-96 mx-12 mt-8 " >
           <div className="flex space-x-10 items-center">
-            <h1>{data.name}</h1>
+            <h1>{d.schema_name}</h1>
             <Image
-              src=""  
+              src= '' 
               width={60}
               height={60}
               alt="Nft-logo"

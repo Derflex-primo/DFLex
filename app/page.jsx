@@ -18,14 +18,14 @@ const Home = () => {
           <h1 className="home_title">Virtual Showcase: Exquisite NFTs</h1>
         </div>
         <div className="form_option">
-          <img src="/assets/icons/figma.svg" alt="google logo" class="design" />
+          <img src="/assets/icons/figma.svg" alt="google logo" className="design" />
           <h1>Figma</h1>
         </div>
         <div className="form_option">
           <img
             src="/assets/icons/github-mark.svg"
             alt="google logo"
-            class="design"
+            className="design"
           />
           <h1>Github</h1>
         </div>
@@ -33,7 +33,7 @@ const Home = () => {
           <img
             src="/assets/icons/blender.svg"
             alt="google logo"
-            class="design"
+            className="design"
           />
           <h1>Blender</h1>
         </div>
