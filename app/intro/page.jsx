@@ -7,11 +7,11 @@ import getUSerData from "@app/libs/getData";
 
 
 const LandingPage = async ( ) => {
-  const showDataUSer = await getUSerData()
-  const data = Object.values(showDataUSer)
-  const date = data[2]
+  const { data } = await getUSerData()
 
-   {date && date.map(d => {
+  return (
+    <>
+  {data && data.map(d => {
     return (
       <div key={d.id}>
         
@@ -35,6 +35,7 @@ const LandingPage = async ( ) => {
                  width={1380}
                  height={80}
                  className="rounded-lg opacity-9"
+                 alt="metaverse"
                  priority>
                  </Image>
                  <div className="absolute left-20 bottom-24">
@@ -54,7 +55,7 @@ const LandingPage = async ( ) => {
             <div className="flex justify-between mx-12 mt-12 spc">
                 <ul className="flex space-x-10">
                     <li>Trends</li>
-                    <li>Top NFT's</li>
+                    <li>{"Top NFT's"}</li>
                 </ul>
                 <ul className="flex space-x-10">
                     <li>Area</li>
@@ -98,6 +99,9 @@ const LandingPage = async ( ) => {
 
 
    })}
+    </>
+  )
+   
     
 }
 
