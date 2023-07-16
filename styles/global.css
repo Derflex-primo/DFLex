@@ -135,4 +135,10 @@ body {
   }
 
 
+  .row-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+    justify-content: space-between; /* Adjust this to control the horizontal spacing */
+  }
+
   

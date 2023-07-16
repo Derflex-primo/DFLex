@@ -1,12 +1,12 @@
-const url =
-'https://opensea13.p.rapidapi.com/assets/?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false';
+const url = 'https://api.reservoir.tools/collections/top-selling/v1';
 const options = {
-headers: {
-  'X-RapidAPI-Key': "e6c31a0ab3mshd6395521b46f35bp11e78fjsnfe0185b1a93a",
-  'X-RapidAPI-Host': 'opensea13.p.rapidapi.com',
-},
-
+	method: 'GET',
+	headers: {
+     accept: '*/*',
+     'x-api-key': '2a7e5476-c80d-58af-b601-a58d8f3c8abd'
+	}
 };
+
 
 export default async function getUSerData(){
   const response = await fetch(url, options, {

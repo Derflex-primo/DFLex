@@ -1,5 +1,4 @@
 import "styles/global.css"
-import Link from 'next/link'
 import Image from "next/image"
 
 export const Nav = () => {
