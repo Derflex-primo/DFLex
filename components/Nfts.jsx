@@ -1,18 +1,7 @@
 import getUSerData from "@app/libs/getData";
 import Image from "next/image";
 import "styles/global.css";
-
-function logOnlyOnce(data) {
-  if (!logOnlyOnce.logged) {
-    console.log(data); // Log the message
-    logOnlyOnce.logged = true; // Set the flag to true, so the log won't happen again
-  }
-}
-
-// Set a timeout to reset the flag after a certain delay (e.g., 1 second)
-setTimeout(() => {
-  logOnlyOnce.logged = false;
-}, 1000);
+ 
 
 export const NFTs = async () => {
   const showDataUSer = await getUSerData();
@@ -20,15 +9,15 @@ export const NFTs = async () => {
   const date = data[0];
 
   return (
-    <>
+    <div className="flex-wrap flex flex-row pb-16">
       {date &&
         date.map((d) => {
           if (!d.image) {
-            return null; // Skip rendering if there's no image
+            return null;  
           }
           return (
             <div key={d.id}>
-              <div className="w-full max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-12 mt-6">
+              <div className="nft w-full max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-12 mt-6">
                 <a href="#" className="flex justify-center">
                   {d.image ? (
                     <Image
@@ -36,7 +25,7 @@ export const NFTs = async () => {
                       width={300}
                       height={380}
                       alt="Product image"
-                      className="rounded-t-lg"
+                      className="nft_img mt-2 rounded-t-lg "
                     />
                   ) : null}
                 </a>
@@ -99,6 +88,6 @@ export const NFTs = async () => {
             </div>
           );
         })}
-    </>
+      </div>
   );
 };

@@ -40,6 +40,7 @@ export const Landing = () => {
         </div>
         <h1 className="absolute right-20 mt-12 text-sm">COLLECTION</h1>
       </div>
+      <h1 className="ml-12 mt-14 text-2xl text-slate-200">New Trends</h1>
     </div>
   );
 };

@@ -125,6 +125,10 @@ body {
     }
   }
 
+
+  .form_layout {
+    @apply  flex justify-between  items-center   mr-12 space-x-2 text-stone-300
+}
    
 
 .metaverse {
@@ -140,5 +144,11 @@ body {
     flex-wrap: wrap; /* Allow items to wrap into multiple rows */
     justify-content: space-between; /* Adjust this to control the horizontal spacing */
   }
+
+
+.nft:hover {
+  @apply bg-gray-900
+}
+
 
   
