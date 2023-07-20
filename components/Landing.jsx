@@ -1,20 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const Landing = () => {
   return (
     <div className="container-row container_color  text-stone-300 ">
-      <div>
-        <ul className="flex ml-12 pt-6 space-x-10  text-stone-300">
-          <li>All</li>
-          <li>Collectibles</li>
-          <li>Gamified</li>
-          <li>Music</li>
-          <li>Virtual Fashion</li>
-          <li>PFPs</li>
-          <li>One-of-one</li>
-        </ul>
-      </div>
-
       <div className="metaverse">
         <Image
           src="/assets/images/metaverse.png"
@@ -35,7 +24,7 @@ export const Landing = () => {
           <h1>By Deogracias_Daryl</h1>
           <h1>10,2003 items - 0.16 ETH</h1>
           <h1 className="text-xl mt-6 py-4 rounded-xl bg-slate-500 text-center text-black font-semibold">
-            16 items left
+           <Link href='/marketplace'>16 items left</Link>  
           </h1>
         </div>
         <h1 className="absolute right-20 mt-12 text-sm">COLLECTION</h1>

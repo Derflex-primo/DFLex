@@ -1,5 +1,6 @@
 import getUSerData from "@app/libs/getData";
 import Image from "next/image";
+import Link from "next/link";
 import "styles/global.css";
  
 
@@ -17,18 +18,18 @@ export const NFTs = async () => {
           }
           return (
             <div key={d.id}>
-              <div className="nft w-full max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-12 mt-6">
-                <a href="#" className="flex justify-center">
+              <div className="nft  w-full max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-12 mt-6">
+               <Link href='#' className="flex justify-center"> 
                   {d.image ? (
                     <Image
                       src={d.image}
                       width={300}
                       height={380}
                       alt="Product image"
-                      className="nft_img mt-2 rounded-t-lg "
+                      className="nft_img mt-2  rounded-t-lg "
                     />
                   ) : null}
-                </a>
+                 </Link>
                 <div className="px-2 pb-5">
                   <div className="mb-3">
                     <a href="#" className="flex">

@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  env: {
-    DB_URI: 'mongodb://localhost:27017/dflex'
-  }
+
 }
 
 module.exports = {
-    // ...other Next.js configuration options
-  
-    images: {
-      domains: ['storage.googleapis.com', 'i.seadn.io','lh3.googleusercontent.com'],
-    },
-  };
+  // ...other Next.js configuration options
+
+  images: {
+    domains: ['i.seadn.io', 'sentinel-nft', 'mkpcdn.com', 'gateway.pinata.cloud', 'storage.googleapis.com', 'res.cloudinary.com', 'ipfs.io', 'ipfs.pixura.io',
+     'sothebys-md.brightspotcdn.com', 'www.christies.com', 'f8n-ipfs-production.imgix.net', 
+     'assets.phillips.com', 'sothebys-com.brightspotcdn.com', 'd2ybmb80bbm9ts.cloudfront.net'],
+  },
+};

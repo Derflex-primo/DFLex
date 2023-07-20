@@ -20,6 +20,9 @@ module.exports = {
       animation: {
         gradient: 'animatedgradient 6s ease infinite alternate',
       },
+      fontSize: {
+        sm: '12px'
+      }
     },
     
   },
