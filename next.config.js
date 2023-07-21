@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    DATA_KEY: '2a7e5476-c80d-58af-b601-a58d8f3c8abd',
+    MARKET_KEY: '744b45fd88msh35118922d91f9bcp1969a9jsn8ed76d755a3e'
+  }
 
 }
 

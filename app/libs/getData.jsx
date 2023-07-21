@@ -3,7 +3,7 @@ const options = {
 	method: 'GET',
 	headers: {
      accept: '*/*',
-     'x-api-key': '2a7e5476-c80d-58af-b601-a58d8f3c8abd'
+     'x-api-key': process.env.DATA_KEY
 	}
 };
 
