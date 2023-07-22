@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Nav } from "@components/Nav";
 import { options } from "../page";
@@ -14,13 +15,15 @@ export async function getNftData({id}) {
 }
 
 const returnMarketValue = async ({params: {id}}) => {
-  const data = await getNftData(id);
-  
+  const showDataUSer = await getNftData(id);
+  const data = Object.values(showDataUSer);
+  const date = data[0];
+
   return (
     <div>
       <Nav />
       <div>
-        <h1>{data.name}</h1>
+        <h1>{date.name}</h1>
       </div>
     </div>
   );

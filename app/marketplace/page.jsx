@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Nav } from "@components/Nav";
 import Link from "next/link";
@@ -40,7 +41,7 @@ const marketPlace = async () => {
   const showDataUSer = await getNftData();
   const data = Object.values(showDataUSer);
   const date = data[0];
-  console.log(date);
+
 
   return (
     <>
@@ -49,6 +50,7 @@ const marketPlace = async () => {
         <div className="container_color flex-wrap flex flex-row pb-16 justify-center ">
           {date &&
             date.map((d) => {
+              
               return (
                 <div key={d.id}>
                   <div className="nft max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 space-x-1 mb-4 mx-4 mt-4 ">
@@ -66,6 +68,7 @@ const marketPlace = async () => {
                           />
                         ) : null}
                       </Link>
+                      {console.log(d.id)}
                     </div>
                     <div className="px-2 pb-5">
                       <div className="mb-3">
