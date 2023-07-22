@@ -30,7 +30,7 @@ export const Nav = () => {
         </ul>
         <ul className="space-x-1 pt-6 mr-12 ">
       
-          <form className="">
+          <form  className="">
               <select className="px-4 py-2 rounded-lg" name="nft" id="nft">
                 <option value="image">Image</option>
                 <option value="meme">Meme</option>
@@ -42,7 +42,6 @@ export const Nav = () => {
               className=" ml-4 placeholder-gray-700 rounded-lg px-4 py-2 w-96 "
               placeholder="your value..."
               type="email"
-              value=''
               required
             />
             <button

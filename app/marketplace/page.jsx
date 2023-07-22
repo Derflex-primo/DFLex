@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav } from "@components/Nav";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import "styles/global.css";
 
 function truncateText(text, limit) {
@@ -17,46 +17,48 @@ function formatUSDWithComma(number) {
 export const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "744b45fd88msh35118922d91f9bcp1969a9jsn8ed76d755a3e",
-    "X-RapidAPI-Host": "most-expensive-nft-artworks.p.rapidapi.com",
+    accept: "*/*",
+    "x-api-key": process.env.MARKET_KEY,
   },
 };
 
 export async function getNftData() {
   const response = await fetch(
-    "https://most-expensive-nft-artworks.p.rapidapi.com/artworks?page=3&sort=usd_price",
+    "https://api.reservoir.tools/collections/v6",
     options,
     { cache: "no-cache" }
   );
 
   if (!response.ok) {
-    throw new Error("Failed to fetch data");
+    throw Error("Failed to fetch data");
   }
 
   return response.json();
 }
 
 const marketPlace = async () => {
-  const data = await getNftData();
+  const showDataUSer = await getNftData();
+  const data = Object.values(showDataUSer);
+  const date = data[0];
+  console.log(date);
 
   return (
     <>
       <Nav></Nav>
       <div className="">
         <div className="container_color flex-wrap flex flex-row pb-16 justify-center ">
-          {data &&
-            data.map((d) => {
+          {date &&
+            date.map((d) => {
               return (
                 <div key={d.id}>
                   <div className="nft max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 space-x-1 mb-4 mx-4 mt-4 ">
                     <div className="min-h-fit mt-2 mx-2  ">
                       <Link
                         href={`/marketplace/${d.id}`}
-                        className="image-container   overflow-hidden"
-                      >
+                        className="image-container   overflow-hidden">
                         {d.image ? (
                           <Image
-                            src={d.thumbnail}
+                            src={d.image}
                             width={300}
                             height={300}
                             alt="Product image"
@@ -100,7 +102,7 @@ const marketPlace = async () => {
                           </div>
                           <div className="flex">
                             <h3 className="text-white font-semibold">
-                              {formatUSDWithComma(d.usd_price)}
+                              {formatUSDWithComma(d.ownerCount)}
                             </h3>
                             <Image
                               src="/assets/icons/tether.svg"
@@ -114,7 +116,7 @@ const marketPlace = async () => {
 
                         <div className="flex-col mt-2">
                           <h3 className="text-2xl font-bold text-gray-900 dark:text-white justify-end flex">
-                            {d.artwork_id}
+                            {d.ownerCount}
                           </h3>
                           <h3 className="bg-blue-100 text-blue-800 text-xs font-semibold  px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ">
                             collections
