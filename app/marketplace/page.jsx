@@ -1,19 +1,11 @@
-
 import React from "react";
 import { Nav } from "@components/Nav";
+import { NavMarket } from "@components/NavMarket";
+import { formatUSDWithComma, truncateText } from "@app/libs/formatter";
 import Link from "next/link";
 import Image from "next/image";
 import "styles/global.css";
 
-function truncateText(text, limit) {
-  if (text.length > limit) {
-    return text.slice(0, limit) + "...";
-  }
-  return text;
-}
-function formatUSDWithComma(number) {
-  return number.toLocaleString("en-US", { style: "currency", currency: "USD" });
-}
 
 export const options = {
   method: "GET",
@@ -42,22 +34,22 @@ const marketPlace = async () => {
   const data = Object.values(showDataUSer);
   const date = data[0];
 
-
   return (
     <>
       <Nav></Nav>
+      <NavMarket></NavMarket>
       <div className="">
         <div className="container_color flex-wrap flex flex-row pb-16 justify-center ">
           {date &&
             date.map((d) => {
-              
               return (
                 <div key={d.id}>
                   <div className="nft max-w-xs max-h-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 space-x-1 mb-4 mx-4 mt-4 ">
                     <div className="min-h-fit mt-2 mx-2  ">
                       <Link
                         href={`/marketplace/${d.id}`}
-                        className="image-container   overflow-hidden">
+                        className="image-container   overflow-hidden"
+                      >
                         {d.image ? (
                           <Image
                             src={d.image}
@@ -71,19 +63,17 @@ const marketPlace = async () => {
                       {console.log(d.id)}
                     </div>
                     <div className="px-2 pb-5">
-                      <div className="mb-3">
-                        <a href="#" className="flex">
-                          <h1 class="text-lg mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">
-                            {truncateText(d.name, 20)}
-                          </h1>
-                          <Image
-                            src="/assets/icons/verified.svg"
-                            width={18}
-                            height={18}
-                            className="ml-2 mt-2 text-white"
-                            alt="product"
-                          />
-                        </a>
+                      <div className="mb-3 flex">
+                        <h1 class="text-lg mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">
+                          {truncateText(d.name, 20)}
+                        </h1>
+                        <Image
+                          src="/assets/icons/verified.svg"
+                          width={18}
+                          height={18}
+                          className="ml-2 mt-2 text-white"
+                          alt="product"
+                        />
                       </div>
 
                       <div className="flex justify-between">
