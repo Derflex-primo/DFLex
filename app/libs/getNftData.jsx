@@ -1,7 +1,5 @@
-
-
 // MARKETPLACE - DATA API
-export const options = {
+export const option = {
     method: "GET",
     headers: {
       accept: "*/*",
@@ -12,7 +10,7 @@ export const options = {
   export async function getNftData() {
     const response = await fetch(
       "https://api.reservoir.tools/collections/v6",
-      options,
+      option,
       { cache: "no-cache" }
     );
   
@@ -22,4 +20,3 @@ export const options = {
   
     return response.json();
   }
-  

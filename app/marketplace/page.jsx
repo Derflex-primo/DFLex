@@ -4,30 +4,8 @@ import { NavMarket } from "@components/NavMarket";
 import { formatUSDWithComma, truncateText } from "@app/libs/formatter";
 import Link from "next/link";
 import Image from "next/image";
+import { getNftData } from "@app/libs/getNftData";
 import "styles/global.css";
-
-
-export const options = {
-  method: "GET",
-  headers: {
-    accept: "*/*",
-    "x-api-key": process.env.MARKET_KEY,
-  },
-};
-
-export async function getNftData() {
-  const response = await fetch(
-    "https://api.reservoir.tools/collections/v6",
-    options,
-    { cache: "no-cache" }
-  );
-
-  if (!response.ok) {
-    throw Error("Failed to fetch data");
-  }
-
-  return response.json();
-}
 
 const marketPlace = async () => {
   const showDataUSer = await getNftData();
@@ -35,6 +13,7 @@ const marketPlace = async () => {
   const date = data[0];
 
   return (
+   
     <>
       <Nav></Nav>
       <NavMarket></NavMarket>

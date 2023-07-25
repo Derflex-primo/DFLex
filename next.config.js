@@ -3,8 +3,10 @@ const nextConfig = {
   env: {
     DATA_KEY: '2a7e5476-c80d-58af-b601-a58d8f3c8abd',
     MARKET_KEY: '8da86061-0623-54d7-8b12-87866a11aa15'
+  },
+  experimental: {
+    serverActions: true,
   }
-
 }
 
 module.exports = {

@@ -1,16 +1,16 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NavMarket } from "@components/NavMarket";
 import { formatDate } from "@app/libs/formatter";
-import { options } from "@app/libs/getData";
-
-
+import { formatVolume } from "@app/libs/formatter";
+import { option } from "@app/libs/getNftData";
+import MarketController from "@components/MarketController";
+import { NavMarket } from "@components/NavMarket";
+import Sort from "@components/Sort";
 
 export async function getNftData(id) {
   const response = await fetch(
     `https://api.reservoir.tools/collections/v6?id=${id}`,
-    options,
+    option,
     { cache: "no-cache" }
   );
 
@@ -21,7 +21,7 @@ export async function getNftData(id) {
   return response.json();
 }
 
-const returnMarketValue = async ({ params: { id } }) => {
+const ReturnMarketValue = async ({ params: { id } }) => {
   const showDataUser = await getNftData(id);
   const data = Object.values(showDataUser);
   return (
@@ -33,7 +33,7 @@ const returnMarketValue = async ({ params: { id } }) => {
             return (
               <div className="relative">
                 <div className="bg-black relative h-80 w-full ">
-                  {d.image ? (
+                  {d.banner ? (
                     <Image
                       src={d.banner}
                       fill
@@ -43,7 +43,9 @@ const returnMarketValue = async ({ params: { id } }) => {
                       className="object-cover"
                       priority={true}
                     />
-                  ) : null}
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div className="">
                   {d.image ? (
@@ -99,7 +101,7 @@ const returnMarketValue = async ({ params: { id } }) => {
                 </div>
                 <div className="ml-12 mt-4">
                   <h1>By {d.slug}</h1>
-                  <span className="flex mt-2 text-lg space-x-4 ">
+                  <span className="flex mt-2 text-base space-x-4 ">
                     <h3>
                       Items <strong>{d.onSaleCount}</strong>
                     </h3>
@@ -115,7 +117,72 @@ const returnMarketValue = async ({ params: { id } }) => {
                     <h3>
                       Category <strong>Art</strong>
                     </h3>
-                  </span> 
+                  </span>
+                  <MarketController
+                    description={d.description}
+                  ></MarketController>
+                  <span className="flex mt-6 space-x-12">
+                    <div className="">
+                      <h3 className="font-bold text-xl">
+                        {formatVolume(d.volume["allTime"])} ETH
+                      </h3>
+                      <h5 className="text-xs font-mono font-thin text-slate-500">
+                        total volume
+                      </h5>
+                    </div>
+                    <div className="">
+                      <h3 className="font-bold text-xl">
+                        {d.floorSale["7day"].toFixed(2)} ETH
+                      </h3>
+                      <h5 className="text-xs font-mono font-thin text-slate-500">
+                        floor price
+                      </h5>
+                    </div>
+                    <div className="">
+                      {typeof d.floorSaleChange["1day"] === "number" &&
+                      !isNaN(d.floorSaleChange["1day"]) ? (
+                        <h3 className="font-bold text-xl">
+                          {d.floorSaleChange["1day"].toFixed(2)} ETH
+                        </h3>
+                      ) : (
+                        <h3 className="font-bold text-xl">N/A</h3>
+                      )}
+                      <h5 className="text-xs font-mono font-thin text-slate-500">
+                        best offer
+                      </h5>
+                    </div>
+                    <div className="">
+                      <h3 className="font-bold text-xl">{d.ownerCount}</h3>
+                      <h5 className="text-xs font-mono font-thin text-slate-500">
+                        holders
+                      </h5>
+                    </div>
+                    <div className="">
+                      <h3 className="font-bold text-green-400 text-xl">
+                        {d.onSaleCount}
+                      </h3>
+                      <h5 className="text-xs font-mono font-thin text-slate-500">
+                        on sale
+                      </h5>
+                    </div>
+                  </span>
+                  <span className="flex justify-between mr-12 mt-6 ">
+                    <div className="flex space-x-8 text-lg text-slate-600  py-3   font-semibold">
+                      <Link href="#" className="hover:text-black">
+                        Items
+                      </Link>
+                      <Link href="#" className="hover:text-black">
+                        Offers
+                      </Link>
+                      <Link href="#" className="hover:text-black">
+                        Analytics
+                      </Link>
+                      <Link href="#" className="hover:text-black">
+                        Events
+                      </Link>
+                    </div>
+                    <Sort></Sort>
+                  </span>
                 </div>
               </div>
             );
@@ -125,4 +192,4 @@ const returnMarketValue = async ({ params: { id } }) => {
   );
 };
 
-export default returnMarketValue;
+export default ReturnMarketValue;
