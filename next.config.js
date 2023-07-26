@@ -13,6 +13,6 @@ module.exports = {
   // ...other Next.js configuration options
 
   images: {
-    domains: ['i.seadn.io', 'storage.googleapis.com', 'lh3.googleusercontent.com'],
+    domains: ['i.seadn.io', 'storage.googleapis.com', 'lh3.googleusercontent.com', 'openseauserdata.com'],
   },
 };

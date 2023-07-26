@@ -166,7 +166,7 @@ const ReturnMarketValue = async ({ params: { id } }) => {
                       </h5>
                     </div>
                   </span>
-                  <span className="flex justify-between mr-12 mt-6 ">
+                  <span className="flex justify-between mr-12 mt-6 border-b-2">
                     <div className="flex space-x-8 text-lg text-slate-600  py-3   font-semibold">
                       <Link href="#" className="hover:text-black">
                         Items
@@ -181,7 +181,24 @@ const ReturnMarketValue = async ({ params: { id } }) => {
                         Events
                       </Link>
                     </div>
+                    
                     <Sort></Sort>
+                  </span>
+                  <span>
+                  <div className="flex mt-2 justify-between mr-12 ">
+                      {d.sampleImages && d.sampleImages.length > 0
+                        ? d.sampleImages.map((imageSrc, index) => (
+                            <Image
+                              key={index}
+                              src={imageSrc}
+                              width={300}
+                              height={300}
+                              alt={`Product img ${index}`}
+                              className="nft_img border-4 border-slate-100 drop-shadow-lg rounded-lg"
+                            />
+                          ))
+                        : null}
+                    </div>
                   </span>
                 </div>
               </div>
