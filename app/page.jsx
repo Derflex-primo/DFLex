@@ -15,7 +15,7 @@ const Home = () => {
       </div>
       <div>
         <div className="text-center pb-5">
-          <h1 className="home_title">Virtual Showcase: Exquisite NFTs</h1>
+          <h1 className="home_title">NFTs Marketplace</h1>
         </div>
         <div className="form_option">
           <img src="/assets/icons/figma.svg" alt="google logo" className="design" />
